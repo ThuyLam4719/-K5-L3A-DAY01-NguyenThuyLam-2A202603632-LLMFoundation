@@ -56,6 +56,7 @@ Hầu như đoán đúng hết, các câu còn lại làm không kịp
 ## 4. Phân tích 50 case khó
 
 *Model nào tụt nhiều nhất, ở nhóm case nào? Nêu 2 case cụ thể và cơ chế khiến model sai.*
+ BoW+MLP tuột nhiều nhất. Ở nhóm Spam giọng tự nhiên và Thao túng lừa đảo.
 
 ## 5. Thử thách cá nhân
 
@@ -64,6 +65,7 @@ Hầu như đoán đúng hết, các câu còn lại làm không kịp
 ## 6. Phương án cho sản phẩm thật
 - Chọn BoW + MLP: trên kết quả lab, phương án này đạt SLA p95 < 50 ms và có lỗi 1 − F1 thấp nhất trong các phương án đạt SLA. So với BoW + LogReg, nó phân loại tốt hơn nhưng vẫn cần kiểm tra tốc độ trên tải thực tế
 - Đánh đổi: cần dữ liệu SMS có nhãn để huấn luyện và cập nhật mô hình; bag-of-words cũng khó hiểu ngữ cảnh mới. Trước khi triển khai cho 10 triệu SMS/ngày, cần xác nhận p95 dưới tải sản xuất và theo dõi chất lượng trên dữ liệu thực tế
+
 ## 7. AI log và điều đã học
 
 *Mỗi lần dùng AI: hỏi gì, nhận gì, bạn sửa gì. Sau đó 2–3 câu: điều bạn hiểu ra hôm nay mà trước đó chưa hiểu.*
