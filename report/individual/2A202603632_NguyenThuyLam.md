@@ -45,16 +45,12 @@
 4a. LLM nhỏ zero-shot              2992.486           0.0  
 4b. LLM lớn zero-shot              2428.478           0.0  
 4c. LLM nhỏ few-shot               3323.097           0.0  
-• Hàng LLM chỉ đo trên SUB (40 tin) → so sánh chất lượng công bằng bằng cột 'F1 (SUB 40)'.
-• SUB chỉ 40 tin: 1 tin sai đổi F1 vài điểm. Chênh < ~0.05 F1 coi như HOÀ — đừng xếp hạng theo số lẻ.
-• Inference đo TỪ VĂN BẢN THÔ → NHÃN (gồm cả vectorize / encode). p50/p95 = gọi từng tin một, như một request thật.
-• train (s) của 3a/3b/3c = thời gian encoder MiniLM encode tập train (+ train đầu LogReg / MLP); LLM = 0 vì không train. Số đo phụ thuộc CPU/GPU của Colab.
 
 ## 3. Dự đoán và thực tế
-Hầu như đoán đúng hết, các câu còn lại làm không kịp
+### Thí nghiệm 4.a
+- Dự đoán F1 của model lớn cao hơn model nhỏ khoản 0.05-.0.1% -> F1 của 2 model bằng nhau (F1 = 0.93)
 
 ## 4. Phân tích 50 case khó
-
 *Model nào tụt nhiều nhất, ở nhóm case nào? Nêu 2 case cụ thể và cơ chế khiến model sai.*
  BoW+MLP tuột nhiều nhất. Ở nhóm Spam giọng tự nhiên và Thao túng lừa đảo.
 
@@ -67,7 +63,9 @@ Hầu như đoán đúng hết, các câu còn lại làm không kịp
 - Đánh đổi: cần dữ liệu SMS có nhãn để huấn luyện và cập nhật mô hình; bag-of-words cũng khó hiểu ngữ cảnh mới. Trước khi triển khai cho 10 triệu SMS/ngày, cần xác nhận p95 dưới tải sản xuất và theo dõi chất lượng trên dữ liệu thực tế
 
 ## 7. AI log và điều đã học
-
-*Mỗi lần dùng AI: hỏi gì, nhận gì, bạn sửa gì. Sau đó 2–3 câu: điều bạn hiểu ra hôm nay mà trước đó chưa hiểu.*
 - Hỏi về cách viết các hàm, call API, kiến thức mới.
 - Học được nhiều kiến thức mới: Perato, SLA,...
+- Hỏi giá của 2 model grod : "big": "openai/gpt-oss-120b", "mini": "openai/gpt-oss-20b" 
+    -> openai/gpt-oss-120b (big): input 0.15$ output 0.6$ (1M tokens)
+    -> openai/gpt-oss-20b (mini): input 0.075$ output 0.3$ (1M tokens)
+- WER là gì? -> Khái niệm
